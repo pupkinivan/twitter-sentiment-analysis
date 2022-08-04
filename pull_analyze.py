@@ -8,9 +8,9 @@ from twitter import TwitterClient
 
 
 def run(keyword: str):
-    twitter_client = TwitterClient("9mCSzfgGPADID9d7BEu5LKNqz",
-                                   "YNmuDCETooxcvyZLxkJGEH1y81yIPHQP3QECqft6LIYcN8Qp1D",
-                                   "AAAAAAAAAAAAAAAAAAAAANpOfgEAAAAA1xyBAkg9x08vTUpGCLkzUjd90Wk%3DwrJ0zEZCUEQvtoqbrf4TcRMqqQMAvD9gx9TzwdCfiVPT7HMwve")
+    twitter_client = TwitterClient(api_key="",
+                                   secret_key="",
+                                   bearer_token="")
     sentiment_classifier = dnn.load_model()
     sentiment_classifier.eval()
     stemmer = PorterStemmer()
@@ -34,7 +34,7 @@ def run(keyword: str):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-k", "--keyword", required=True, type=str)
+    parser.add_argument("-k", "--keyword", required=True, type=str, help="The parameter '--keyword <string>' is required")
     args = parser.parse_args()
 
     keyword = args.keyword
